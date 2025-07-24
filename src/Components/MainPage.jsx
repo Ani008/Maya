@@ -32,7 +32,7 @@ const handleCollision = (collision) => {
 
 // Earth component to load and rotate the GLB model
 function Earth({ rotationSpeed = 0.001 }) {
-  const gltf = useGLTF("/earth.glb");
+  const gltf = useGLTF("/earth-compressed.glb");
   const earthRef = useRef();
 
   useFrame(() => {
