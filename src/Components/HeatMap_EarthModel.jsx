@@ -1,0 +1,95 @@
+import React, { useRef, Suspense, useState } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { OrbitControls, useGLTF, Preload } from "@react-three/drei";
+
+import EarthGrid from "./HeatMap_EathGridLines";
+import HeatmapOverlay from "./HeatMap_HeatMapOverlay";
+
+import Debris from "./Debris";
+
+
+
+
+
+// Main App component
+export default function HeatMap_EarthModel({onDebrisSelect}) {
+
+
+
+const [collisionLog, setCollisionLog] = useState([]);
+const [heatmapBins, setHeatmapBins] = useState({});
+
+
+const handleCollision = (collision) => {
+
+  const id = `${collision.noradId}-${collision.timestamp.slice(0, 19)}`;
+  const isDuplicate = collisionLog.some(
+    (item) => `${item.noradId}-${item.timestamp.slice(0, 19)}` === id
+  );
+  if (isDuplicate) return;
+
+  setCollisionLog((prev) => [collision, ...prev.slice(0, 49)]);
+};
+
+
+
+
+// Earth component to load and rotate the GLB model
+function Earth({ rotationSpeed = 0.001 }) {
+  const gltf = useGLTF("/earth.glb");
+  const earthRef = useRef();
+
+  useFrame(() => {
+    if (earthRef.current) {
+      earthRef.current.rotation.y += rotationSpeed;
+    }
+  });
+
+  return <primitive object={gltf.scene} ref={earthRef} scale={0.03} />;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  return (
+    <div className="w-full h-screen bg-black overflow-hidden">
+      <Canvas
+        camera={{ position: [0, 0, 10], fov: 20 }}
+        style={{ background: "#000000" }}
+      >
+        <ambientLight intensity={0.3} />
+        <directionalLight position={[5, 5, 5]} intensity={1} />
+        <pointLight position={[0, 2, 2]} intensity={1.5} color="yellow" />
+
+        <Suspense fallback={null}>
+          <Earth />
+          <EarthGrid radius={4} />
+          <Debris onCollision={handleCollision} onHeatmapUpdate={setHeatmapBins} />
+          <HeatmapOverlay heatmapBins={heatmapBins} />
+        
+          <Preload all />
+        </Suspense>
+
+        <OrbitControls
+          enablePan={false}
+          autoRotate
+          autoRotateSpeed={0.5}
+          enableZoom
+          minDistance={5}
+          maxDistance={80}
+        />
+      </Canvas>
+
+    </div>
+  );
+}
