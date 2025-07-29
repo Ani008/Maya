@@ -1,17 +1,46 @@
-<<<<<<< HEAD
-# React + Vite
+# 🌌 MAYA – Space Debris Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![MAYA UI Preview](./WEBUI.png)
 
-Currently, two official plugins are available:
+**MAYA** is a real-time, 3D space debris tracking web application visualizing **ISRO satellites**, debris, and potential orbital collisions using TLE data. It aims to support research and awareness around space sustainability.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-=======
-# Maya
-Maya is a real-time, interactive 3D web application that visualizes and tracks space debris orbiting Earth using live TLE (Two-Line Element) data. Built with React. Maya offers a dynamic, immersive interface for understanding the growing threat of orbital debris.
->>>>>>> 785595381cb9962d3744ec572e05f300ac034133
+- 🌍 Real-time interactive **3D Earth Model**
+- 🛰️ 3D **Satellite Model** with smooth rotation
+- 🛰️ **Real Orbit Visualization** of **ISRO GSAT-7 (Rukmini)** using live TLE data
+- 🧠 Dynamic debris tracking with **NORAD ID integration**
+- ⚠️ Real-time **collision detection**
+- 🔔 **Alerts** upon predicted collisions
+- 🔥 **Heatmaps** based on dense TLE data regions
+
+---
+
+## 🧪 Tech Stack
+
+- ⚛️ React + JSX
+- 🎨 Tailwind CSS
+- 🛰️ Satellite.js + TLE Parser
+- 🌐 Three.js + @react-three/fiber + drei
+- ⚡ Vite (for fast bundling and dev server)
+
+---
+
+## 🛠️ Getting Started
+
+To run the project locally:
+
+```bash
+# 1. Clone the repo
+git clone https://github.com/Ani008/Maya.git
+
+# 2. Navigate into the directory
+cd Maya
+
+# 3. Install dependencies
+npm install
+
+# 4. Run the app
+npm run dev
