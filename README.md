@@ -30,7 +30,7 @@
 
 ## 🛠️ Getting Started
 
-To run the project locally:
+1. To run the project locally:
 
 ```bash
     git clone https://github.com/Ani008/Maya.git
