@@ -33,14 +33,32 @@
 To run the project locally:
 
 ```bash
-# 1. Clone the repo
-git clone https://github.com/Ani008/Maya.git
+    git clone https://github.com/Ani008/Maya.git
+```
 
-# 2. Navigate into the directory
-cd Maya
 
-# 3. Install dependencies
-npm install
+2. Navigate into the project directory:
+    
+```bash   
+    cd Maya
+```
 
-# 4. Run the app
-npm run dev
+
+3. Install dependencies:
+    
+```bash   
+    npm install
+```
+
+
+4. Start the development server:
+    
+```bash   
+    npm run dev
+```
+
+
+Open your browser and visit http://localhost:5173 to view the app.
+
+## Contributing
+
