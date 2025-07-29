@@ -1,6 +1,6 @@
 # 🌌 MAYA – Space Debris Tracker
 
-![MAYA UI Preview](./WEBUI.png)
+![MAYA UI Preview](./1.png)
 
 **MAYA** is a real-time, 3D space debris tracking web application visualizing **ISRO satellites**, debris, and potential orbital collisions using TLE data. It aims to support research and awareness around space sustainability.
 
